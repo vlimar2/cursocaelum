@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+
+<script src="pegaNumero.js"></script>
+
+<h1>Cálculo IMC</h1>
+
+<script>
+   let peso = pegaNumero("Digite seu peso")
+   let altura = pegaNumero("Digite sua altura")
+</script>
+
+<script>
+//var peso = prompt("Digite seu peso")
+//var altura = prompt("Digite sua altura")
+ 
+//calculo IMC
+let medidas = peso/(altura*altura)
+
+
+let fraseClassificação
+if (medidas < 17.0) {
+   fraseClassificação = "Muito abaixo do peso"
+} else if (medidas >= 17.0 && medidas <= 18.49) {
+   fraseClassificação = "Abaixo do peso"
+} else if (medidas >= 18.5 && medidas <= 24.99) {
+   fraseClassificação = "Peso normal"
+} else if (medidas >= 25.0 && medidas <= 29.99) {
+   fraseClassificação = "Acima do peso"
+} else if (medidas >= 30.0 && medidas <= 34.99) {
+   fraseClassificação = "Obesidade 1"
+} else if (medidas >= 35.0 && medidas <= 39.99) {
+   fraseClassificação = "Obesidade 2 (severa)"
+} else {
+   fraseClassificação = "Obesidade 3 (mórbida)"
+} 
+   
+document.write("<h1>")  
+document.write("O seu IMC é: ")
+//soma de todas as idades
+document.write(medidas.toFixed(1).replace(".",",") + "<br>")
+document.write("Você está na faixa: ", fraseClassificação)
+
+
+</script>

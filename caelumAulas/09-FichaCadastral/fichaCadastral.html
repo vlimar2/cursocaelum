@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+
+<script src="file:///home/logica8350/Desktop/caelum/77-funcoesCompartilhadas/pegaNumero.js"></script> 
+
+<h1>Ficha cadastral</h1>
+
+<script>
+
+let nome = prompt ("Qual seu nome")
+let peso = pegaNumero ("Qual seu peso")
+let altura = pegaNumero ("Qual sua altura")
+let dataNascimento = prompt ("Quando você nasceu")
+
+document.write (`
+Nome: ${nome}<br>
+Peso: ${peso.toFixed(2).replace(".",",")}<br>
+Altura: ${altura.toFixed(2).replace(".",",")}<br>
+Data de nascimento: ${dataNascimento}
+`)
+
+</script>

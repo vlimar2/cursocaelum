@@ -1,0 +1,75 @@
+<meta charset="utf-8">
+
+<script src = "https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/libBrasil.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/mostra.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/calculoIdade/apostilaIgnore/libIdade.js"></script>
+
+
+<h1>Ficha cadastral</h1>
+
+Nome:
+<br>
+<input type="text" id="campoNome">
+<br><br>
+
+Peso:
+<br>
+<input type="text" id="campoPeso">
+<br><br>
+
+Altura:
+<br>
+<input type="text" id="campoAltura">
+<br><br>
+
+Data de nascimento:
+<br>
+<input type="text" id="campoNascimento">
+<br><br>
+
+<input type="checkbox" id="checkboxprobcard">
+Tem problema cardíacos?
+<br><br>
+
+<button onclick="enviar()">
+Cadastrar
+</button>
+
+<script>
+function enviar() {
+
+  let nome = campoNome.value
+  let peso = parseFloatBrasil (campoPeso.value)
+  let altura = parseFloatBrasil (campoAltura.value)
+  let datanascimento = campoNascimento.value
+  let dataNascimentoLista = datanascimento.split("/")
+  let dia = dataNascimentoLista[0]
+  let mes = dataNascimentoLista[1]
+  let ano = dataNascimentoLista[2]
+  let idade = calculaIdade(dia, mes, ano)
+  let problemacard = checkboxprobcard.checked
+  let fraseLaudomedico
+if (problemacard){
+    fraseLaudomedico = "Requer laudo médico"
+  } else {
+    fraseLaudomedico = "Liberado para atividade física"
+  }
+  
+  mostra(`
+  <hr> 
+  Nome: ${nome}
+  <br>
+  Peso: ${formataFloatBrasil(peso)}
+  <br>
+  Altura: ${formataFloatBrasil(altura)}
+  <br>
+  Data de nascimento: ${datanascimento}
+  <br>
+  Idade: ${idade} anos
+  <br>
+  ${fraseLaudomedico}
+  `)
+}
+
+//
+</script>

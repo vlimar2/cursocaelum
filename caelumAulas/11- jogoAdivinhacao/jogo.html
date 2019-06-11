@@ -1,0 +1,59 @@
+<meta charset="utf-8">
+
+<h1>
+    Jogo de adivinhação
+</h1>
+
+<button onclick="jogar()">
+    Play
+</button>
+
+ 
+<script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/libBrasil.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/mostra.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/calculoIdade/apostilaIgnore/libIdade.js"></script>
+<script src="file:///home/logica8350/Desktop/caelum/77-funcoesCompartilhadas/pegaNumero.js"></script>
+
+<script>
+    let numeroJogo = 0
+    let tentativas = 5
+
+    function jogar(){
+        
+        //verifica se esgotou os créditos
+        if (tentativas == 0) {
+            alert("Você esgotou o número de tentativas!")
+            return
+        }
+
+        //sortear o número a ser adivinhado
+        let numeroMisterioso = parseInt(Math.random()*10)+1
+        console.log(numeroMisterioso)
+
+        //solicitar tentativa de adivinhação
+        let chute = pegaNumero("Escolha um número entre 1 e 10")
+        if (chute < 1 || chute > 10 || isNaN(chute)){
+            alert ("Essa resposta não é válida. Favor verificar")
+            return
+        }
+
+        //incrementa número do jogo
+        numeroJogo++
+
+        //verifica se acertou
+        if (chute == numeroMisterioso){
+            mostra(`
+            <hr>
+            Jogo ${numeroJogo}: Acertou! O número sorteado era ${numeroMisterioso}
+             `)
+        } else {
+            tentativas--
+        
+            mostra(`
+            Jogo ${numeroJogo}: Errou! O número sorteado era ${numeroMisterioso}
+            <br>
+            Você tem ${tentativas} tentativas
+             `)
+        }
+    }
+</script>

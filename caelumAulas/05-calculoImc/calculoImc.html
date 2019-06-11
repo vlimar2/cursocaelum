@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+
+<script src="pegaNumero.js"></script>
+
+<h1>Cálculo IMC</h1>
+
+<script>
+   let peso = pegaNumero("Digite seu peso")
+   let altura = pegaNumero("Digite sua altura")
+</script>
+
+<script>
+//var peso = prompt("Digite seu peso")
+//var altura = prompt("Digite sua altura")
+ 
+//calculo IMC
+let medidas = peso/(altura*altura)
+
+document.write("O seu IMC é: ")
+//soma de todas as idades
+document.write(medidas.toFixed(1).replace(".",",")) + "<br>"
+
+</script>

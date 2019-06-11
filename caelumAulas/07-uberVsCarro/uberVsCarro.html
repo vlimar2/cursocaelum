@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+
+<h1>Uber vs carro</h1>
+
+<h2>Valor do Uber</h2>
+Total: R$ 42,00
+
+
+<h2>Valor do carro</h2>
+
+
+<script>
+var gastoGasolina = parseFloat(prompt("Informe quanto gastará com combustível"))
+
+var gastoEstacionamento = parseFloat(prompt("Informe quanto gastará com estacionamento"))
+
+//var consumoGasolina = prompt("Digite o consumo do automóvel com gasolina em kilômetros (somente números)")
+//var consumoAlcool = prompt("Digite o consumo do automóvel com álcool em kilômetros (somente números)")
+
+//var valorKilometroGasolina = valorGasolina/consumoGasolina
+//var valorKilometroAlcool =  valorAlcool/consumoAlcool
+
+//var combustivelVantagoso
+
+var totalCarro = gastoGasolina + gastoEstacionamento
+
+document.write("Total: R$" + totalCarro.toFixed(2).replace(".",","))//.toFixed(2)
+//document.write( "O gasto com carro particular é" + totalCarro
+
+</script>

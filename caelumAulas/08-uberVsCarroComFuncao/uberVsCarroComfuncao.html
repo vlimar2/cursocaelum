@@ -1,0 +1,92 @@
+<meta charset="utf-8">
+
+<h1>Uber vs carro</h1>
+
+<script src="pegaNumero.js"></script>
+
+<h2>Distância a ser percorrida</h2>
+
+<script>
+    //let distancia = parseFloat(prompt("Informe qual a distância que você irá percorrer").replace(",","."))
+    //document.write(`
+    //Distância a ser percorrida: R$ ${distancia.toFixed(2).replace(".",",")}
+    //`)
+    let distancia = pegaNumero("Informe qual a distância que você irá percorrer")
+    document.write(`
+Distância a ser percorrida: R$ ${distancia.toFixed(2).replace(".", ",")}
+`)
+
+</script>
+
+<h2>Valor do Uber</h2>
+
+
+<script> //Total: R$ 42,00 
+
+    //let distancia = parseFloat(prompt("Informe qual a distância que você irá percorrer"))
+
+    var velMedia = 25
+
+    var precobase = 2
+
+    var kmRodado = 1.4
+
+    var minRodado = 0.26
+
+    var tempoEmHoras = (distancia / velMedia)
+
+    var tempoEmMinutos = (tempoEmHoras * 60)
+
+    totalUber = precobase + (distancia * kmRodado) + (tempoEmMinutos * minRodado)
+
+    //document.write("Total da viagem usando Uber: R$" + totalUber.toFixed(2).replace(".",","))
+    document.write(`
+Total da viagem usando Uber: R$ ${totalUber.toFixed(2).replace(".", ",")}
+`)
+
+</script>
+
+<h2>Valor do carro</h2>
+
+<script>
+
+    //var distancia = parseFloat(prompt("Informe qual a distância que você irá percorrer"))
+    //var distancia = parseFloat(prompt("Em relação ao carro particular, Informe qual a distância que você irá percorrer"))
+    //var autonomia = parseFloat(prompt("Informe qual é qual é a autonomia do veículo (em kilômetros)").replace(",","."))
+    //var gastoEstacionamento = parseFloat(prompt("Informe quanto gastará com estacionamento").replace(",","."))
+   
+    let autonomia = pegaNumero("Informe quanto gastará com estacionamento")
+
+    let gastoEstacionamento = pegaNumero("Informe qual é qual é a autonomia do veículo (em kilômetros)")
+
+    var valorGasolina = 3.10
+
+    var totalCombustivel = (distancia / autonomia) * valorGasolina
+
+    var totalGastoCarro = totalCombustivel + gastoEstacionamento
+
+    //var consumoGasolina = prompt("Digite o consumo do automóvel com gasolina em kilômetros (somente números)")
+    //var consumoAlcool = prompt("Digite o consumo do automóvel com álcool em kilômetros (somente números)")
+
+    //var valorKilometroGasolina = valorGasolina/consumoGasolina
+    //var valorKilometroAlcool =  valorAlcool/consumoAlcool
+
+    //var combustivelVantagoso
+
+    //Valor distância a ser percorrida: Km ${distancia.toFixed(1).replace(".",",")}
+    //</br>
+
+    document.write(`
+Valor do litro do combustível: R$ ${valorGasolina.toFixed(2).replace(".", ",")}
+</br>
+Valor autonomia do veículo: Km ${autonomia.toFixed(1).replace(".", ",")}
+</br>
+Valor estacionamento: R$ ${gastoEstacionamento.toFixed(2).replace(".", ",")}
+</br>
+Valor total de combustível gasto: R$ ${totalCombustivel.toFixed(2).replace(".", ",")}
+</br></br>
+Total da viagem usando carro particular: R$ ${totalGastoCarro.toFixed(2).replace(".", ",")}
+</br>
+`)
+
+</script>

@@ -1,0 +1,69 @@
+<meta charset="utf-8">
+
+<script src = "https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/libBrasil.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/mostra.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/calculoIdade/apostilaIgnore/libIdade.js"></script>
+
+
+<h1>Ficha cadastral</h1>
+
+Nome:
+<br>
+<input type="text" id="campoNome">
+<br><br>
+
+Endereço:
+<br>
+<input type="text" id="campoEndereço">
+<br><br>
+
+Data de nascimento:
+<br>
+<input type="text" id="campoNascimento">
+<br><br>
+
+Tem disponibilidade para trabalhar no exterior?
+<input type="checkbox" id="campodisponibilidade">
+<br><br>
+
+<button onclick="enviar()">
+Enviar
+</button>
+
+<script>
+function enviar() {
+
+  let nome = campoNome.value
+  let endereco = campoEndereço.value
+  //let altura = parseFloatBrasil (campoAltura.value)
+  let datanascimento = campoNascimento.value
+  let dataNascimentoLista = datanascimento.split("/")
+  let dia = dataNascimentoLista[0]
+  let mes = dataNascimentoLista[1]
+  let ano = dataNascimentoLista[2]
+  let idade = calculaIdade(dia, mes, ano)
+  let disponibilidade
+ 
+
+  if (campodisponibilidade.checked) {
+    disponibilidade = "SIM"
+  } else {
+    disponibilidade = "NÃO"
+  }
+
+  //let idade = calculaIdade(dia, mes, ano)
+  
+  mostra(`
+  <hr> 
+  Nome: ${nome}
+  <br>
+  Endereço: ${endereco}
+  <br>
+  Data de nascimento: ${datanascimento}
+  <br>
+  Idade: ${idade} anos
+  <br>
+  Tem disponibilidade para trabalhar no exterior: ${disponibilidade}
+  `)
+}
+</script>

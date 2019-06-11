@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+
+<h1>Qual combustível é mais vantagoso</h1>
+
+<script>
+var valorGasolina = 3.10
+var valorAlcool = 2.40
+
+var consumoGasolina = prompt("Digite o consumo do automóvel com gasolina em kilômetros (somente números)")
+var consumoAlcool = prompt("Digite o consumo do automóvel com álcool em kilômetros (somente números)")
+
+var valorKilometroGasolina = valorGasolina/consumoGasolina
+var valorKilometroAlcool =  valorAlcool/consumoAlcool
+
+var combustivelVantagoso
+
+document.write("O consumo com gasolina é: ")
+document.write(valorKilometroGasolina.toFixed(2) + "<br>")
+
+document.write("O consumo com álcool é: ")
+document.write(valorKilometroAlcool.toFixed(2) + "<br>")
+
+</script>

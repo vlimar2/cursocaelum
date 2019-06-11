@@ -1,0 +1,68 @@
+<meta charset="utf-8">
+
+<h1>
+    Jogo de adivinhação
+</h1>
+
+Quantos números quer sortear:
+<input type="number" id="campoNumsorteados" min="1" max="5"></input> <br><br>
+
+<button onclick="jogar()">
+    Play
+</button>
+
+ 
+<script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/libBrasil.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/fichaAcademiaComInterfaceGrafica/apostilaIgnore/mostra.js"></script>
+<script src="https://rawgit.com/caelum/projeto01/calculoIdade/apostilaIgnore/libIdade.js"></script>
+<script src="file:///home/logica8350/Desktop/caelum/77-funcoesCompartilhadas/pegaNumero.js"></script>
+
+<script>
+    let numeroJogo = 0
+    let tentativas = 5
+
+    function jogar(){
+        
+        //verifica se esgotou os créditos
+        if (tentativas == 0) {
+            alert("Você esgotou o número de tentativas!")
+            return
+        }
+
+        //sortear o número a ser adivinhado
+        let qtdeNumeros = campoNumsorteados.value
+        let listaNumeros = []
+        for (let index = 0; index < qtdeNumeros; index++) {
+            let numeroMisterioso = parseInt(Math.random()*10) * 1
+            listaNumeros.push(numeroMisterioso)
+        }
+        //let numeroMisterioso = parseInt(Math.random()*10)+1
+        //console.log(numeroMisterioso)
+
+        //solicitar tentativa de adivinhação
+        let chute = pegaNumero("Escolha um número entre 1 e 10")
+        if (chute < 1 || chute > 10 || isNaN(chute)){
+            alert ("Essa resposta não é válida. Favor verificar")
+            return
+        }
+
+        //incrementa número do jogo
+        numeroJogo++
+
+        //verifica se acertou
+        if (listaNumeros.includes(chute)){
+            mostra(`
+            <hr>
+            Jogo ${numeroJogo}: Acertou! A lista de números era ${listaNumeros}
+             `)
+        } else {
+            tentativas--
+        
+            mostra(`
+            Jogo ${numeroJogo}: Errou! A lista de números era  ${listaNumeros}
+            <br>
+            Você tem ${tentativas} tentativas
+             `)
+        }
+    }
+</script>

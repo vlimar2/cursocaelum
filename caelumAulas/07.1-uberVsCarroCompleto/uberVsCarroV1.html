@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+
+<h1>Uber vs carro</h1>
+
+<h2>Valor do Uber</h2>
+Total: R$ 42,00
+
+
+<h2>Valor do carro</h2>
+
+
+<script>
+
+//var distancia = parseFloat(prompt("Informe qual a distância que você irá percorrer"))
+var distancia = parseFloat(alert("Informe qual a distância que você irá percorrer"))
+var autonomia = parseFloat(prompt("Informe qual é qual é a autonomia do veículo (em kilômetros"))
+var gastoEstacionamento = parseFloat(prompt("Informe quanto gastará com estacionamento"))
+
+var valorGasolina = 3.10
+
+var totalCombustivel = (distancia / autonomia) * valorGasolina
+
+var totalGastoCarro = totalCombustivel + gastoEstacionamento
+
+//var consumoGasolina = prompt("Digite o consumo do automóvel com gasolina em kilômetros (somente números)")
+//var consumoAlcool = prompt("Digite o consumo do automóvel com álcool em kilômetros (somente números)")
+
+//var valorKilometroGasolina = valorGasolina/consumoGasolina
+//var valorKilometroAlcool =  valorAlcool/consumoAlcool
+
+//var combustivelVantagoso
+
+document.write("Total: R$" + totalGastoCarro.toFixed(2).replace(".",","))//.toFixed(2)
+//document.write( "O gasto com carro particular é" + totalCarro
+
+</script>
